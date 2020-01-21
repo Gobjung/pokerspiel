@@ -5,7 +5,7 @@ public class Deck{
     static Random random = new Random();
     public Deck(){
         int i = 0;  // i wird für Zählung Initialisiert
-        for (short j=0; j<4; j++){  // j ist short weil Speicheraufwand am geringsten und weil ich es kann. j zählt Farbe durch
+        for (short j=0; j<4; j++){  // j ist short weil Speicheraufwand am geringsten. j zählt Farbe durch.
             for (short k=0; k<13;k++){  // k zählt rang durch siehe Karte.raenge
                 deck[i++] = new Karte(k, j);  // Keine 3 Schleifen da 2 von alleine aufhören. Iterationen sind abhängig von obigen Bedingungen, "i++" dient lediglich zum durchzählen
             }
@@ -17,7 +17,8 @@ public class Deck{
 
         return deck[karteNum];
     }
-
+    
+    // Karten werden zum Mischen getauscht
     public void mischen(){
         int laenge = deck.length;
         for (int i=0;i<laenge;i++){
@@ -26,7 +27,6 @@ public class Deck{
         }
     }
 
-    // Karten werden zum Mischen getauscht
     public void kartenTauschen(int i, int change){
         Karte temp = deck[i];
         deck[i] = deck[change];
